@@ -123,7 +123,7 @@ export function Hero({ onOpenChat }: { onOpenChat: () => void }) {
   }, [displayed, deleting, roleIdx]);
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden" style={{ background: 'var(--c-bg)' }}>
+    <section className="relative min-h-screen flex items-start md:items-center overflow-hidden" style={{ background: 'var(--c-bg)' }}>
       {/* Background layers */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Dot grid */}
@@ -165,7 +165,7 @@ export function Hero({ onOpenChat }: { onOpenChat: () => void }) {
       </div> */}
 
       {/* Main grid */}
-      <div className="relative z-10 max-w-6xl mx-auto px-5 md:px-8 w-full pt-24 pb-16">
+      <div className="relative z-10 max-w-6xl mx-auto px-5 md:px-8 w-full pt-14 md:pt-24 pb-16">
         <div className="grid lg:grid-cols-[1fr_420px] gap-14 items-center">
           {/* Left */}
           <div>

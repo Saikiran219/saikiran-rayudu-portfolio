@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sun, Moon, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 interface NavbarProps {
-  isDark: boolean;
-  onToggle: () => void;
   onOpenChat: () => void;
 }
 
@@ -16,7 +14,7 @@ const LINKS = [
   { label: 'Contact', href: '#contact' },
 ];
 
-export function Navbar({ isDark, onToggle, onOpenChat }: NavbarProps) {
+export function Navbar({ onOpenChat }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [active, setActive] = useState('');
@@ -104,32 +102,6 @@ export function Navbar({ isDark, onToggle, onOpenChat }: NavbarProps) {
 
           {/* Right controls */}
           <div className="flex items-center gap-2">
-            {/* Premium theme toggle */}
-            <motion.button
-              onClick={onToggle}
-              aria-label="Toggle theme"
-              className="relative flex items-center px-1.5 h-7 rounded-full transition-all duration-300"
-              style={{
-                background: isDark ? 'rgba(99,179,237,0.12)' : 'rgba(245,158,11,0.10)',
-                border: '1px solid var(--c-border2)',
-                width: 52,
-              }}
-              whileTap={{ scale: 0.93 }}
-            >
-              <motion.div
-                animate={{ x: isDark ? 0 : 24 }}
-                transition={{ type: 'spring', stiffness: 600, damping: 38 }}
-                className="w-5 h-5 rounded-full flex items-center justify-center"
-                style={{
-                  background: isDark ? 'var(--c-accent)' : '#f59e0b',
-                  boxShadow: isDark ? '0 0 10px var(--c-glow)' : '0 0 10px rgba(245,158,11,0.5)',
-                }}
-              >
-                {isDark
-                  ? <Moon size={10} className="text-white" />
-                  : <Sun size={10} className="text-white" />}
-              </motion.div>
-            </motion.button>
 
             <motion.button
               onClick={onOpenChat}
