@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTheme } from './hooks';
 import { GlobalEffects } from './components/layout/GlobalEffects';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
@@ -12,12 +11,11 @@ import { Contact } from './components/sections/Contact';
 import { ChatWidget } from './components/chat/ChatWidget';
 
 export default function App() {
-  const { isDark, toggle } = useTheme();
   const [chatOpen, setChatOpen] = useState(false);
 
   return (
-    <div className={isDark ? '' : 'light'}>
-      {/* Ambient cursor glow — hidden on touch devices via CSS */}
+    <div>
+      {/* Ambient cursor glow */}
       <div
         id="cursor-glow"
         aria-hidden="true"
@@ -38,8 +36,6 @@ export default function App() {
       <GlobalEffects />
 
       <Navbar
-        isDark={isDark}
-        onToggle={toggle}
         onOpenChat={() => setChatOpen(true)}
       />
 
